@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'form_page.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
@@ -21,13 +21,59 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Student App',
+      title: 'University Student Portal',
+
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
         useMaterial3: true,
+        fontFamily: 'Arial',
+
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF123B6D),
+          brightness: Brightness.light,
+        ),
+
+        scaffoldBackgroundColor:
+            const Color(0xFFF4F7FB),
+
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Color(0xFF102A43),
+          elevation: 0,
+          centerTitle: false,
+        ),
+
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: const Color(0xFFF8FAFC),
+
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              color: Color(0xFFD9E2EC),
+            ),
+          ),
+
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              color: Color(0xFFD9E2EC),
+            ),
+          ),
+
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              color: Color(0xFF1E5AA8),
+              width: 2,
+            ),
+          ),
+
+          labelStyle: const TextStyle(
+            color: Color(0xFF627D98),
+          ),
+        ),
       ),
+
       home: const FormPage(),
     );
   }
